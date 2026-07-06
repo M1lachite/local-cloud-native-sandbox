@@ -1,0 +1,26 @@
+name: floci
+
+services:
+  floci:
+    image: floci/floci:latest
+    ports:
+      - "4566:4566"
+    volumes:
+      - floci_storage:/app/floci_storage #Jeżeli dane nie będą się zapisywać po restarcie kontenera, zmień prawą stronę na: app/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+    networks:
+      - cloud_network
+    deploy:
+      resources:
+        limits:
+          cpus: "4"
+          memory: "16GB"
+
+volumes:
+  floci_storage:
+networks:
+  cloud_network:
+    driver: bridge
+
+#healthcheck:
