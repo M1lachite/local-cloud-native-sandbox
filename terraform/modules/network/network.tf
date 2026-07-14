@@ -3,27 +3,27 @@ resource "aws_vpc" "main_vpc" {
 }
 
 resource "aws_subnet" "public_1" {
-  vpc_id            = aws_vpc.main_vpc.id
-  cidr_block        = "10.0.1.0/24"
-  availability_zone = "us-east-1a"
+  vpc_id                  = aws_vpc.main_vpc.id
+  cidr_block              = "10.0.1.0/24"
+  availability_zone       = "us-east-1a"
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "public-subnet-1"
-    "kubernetes.io/role/elb" = "1"
+    Name                                        = "public-subnet-1"
+    "kubernetes.io/role/elb"                    = "1"
     "kubernetes.io/cluster/${var.cluster_name}" = "shared"
   }
 }
 
 resource "aws_subnet" "public_2" {
-  vpc_id            = aws_vpc.main_vpc.id
-  cidr_block        = "10.0.32.0/24"
-  availability_zone = "us-east-1b"
+  vpc_id                  = aws_vpc.main_vpc.id
+  cidr_block              = "10.0.32.0/24"
+  availability_zone       = "us-east-1b"
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "public-subnet-2"
-    "kubernetes.io/role/elb" = "1"
+    Name                                        = "public-subnet-2"
+    "kubernetes.io/role/elb"                    = "1"
     "kubernetes.io/cluster/${var.cluster_name}" = "shared"
   }
 }
