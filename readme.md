@@ -19,20 +19,20 @@ The project is structured into two main domains:
 │   │   ├── network.tf
 │   │   ├── providers.tf
 │   │   ├── terraform.tf
-│   │   ├── terraform.tfvars
+│   │   ├── terraform.tfvars # Local variables (git-ignored)
 │   │   └── variables.tf
 │   ├── iam/                 # AWS IAM roles and access policies
 │   │   ├── iam.tf
 │   │   ├── providers.tf
 │   │   ├── terraform.tf
-│   │   ├── terraform.tfvars
+│   │   ├── terraform.tfvars # Local variables (git-ignored)
 │   │   └── variables.tf
 │   └── eks/                 # EKS cluster and Node Groups configuration
 │       ├── data.tf
 │       ├── eks.tf
 │       ├── providers.tf
 │       ├── terraform.tf
-│       ├── terraform.tfvars
+│       ├── terraform.tfvars # Local variables (git-ignored)
 │       └── variables.tf
 └── README.md
 ```
