@@ -12,13 +12,28 @@ The project is structured into two main domains:
 2. **Infrastructure (AWS Cloud):** A complete AWS infrastructure for an EKS cluster built with Terraform, organized into autonomous and reusable modules.
 
 ```text
-.
-├── docker-compose.yml       # Local containerized environment for Floci
-├── modules/                 # Autonomous Terraform modules
-│   ├── network/             # VPC, subnets, NAT Gateways
-│   ├── iam/                 # Roles and access policies
-│   └── eks/                 # Kubernetes cluster and Node Groups configuration
-├── variables.tf             # Input variables for infrastructure
+├── docker_compose/          # Local containerized environment for Floci
+│   └── docker-compose.yml
+├── terraform/               # Infrastructure as Code directory
+│   ├── network/             # VPC, subnets, and NAT Gateways
+│   │   ├── network.tf
+│   │   ├── providers.tf
+│   │   ├── terraform.tf
+│   │   ├── terraform.tfvars
+│   │   └── variables.tf
+│   ├── iam/                 # AWS IAM roles and access policies
+│   │   ├── iam.tf
+│   │   ├── providers.tf
+│   │   ├── terraform.tf
+│   │   ├── terraform.tfvars
+│   │   └── variables.tf
+│   └── eks/                 # EKS cluster and Node Groups configuration
+│       ├── data.tf
+│       ├── eks.tf
+│       ├── providers.tf
+│       ├── terraform.tf
+│       ├── terraform.tfvars
+│       └── variables.tf
 └── README.md
 ```
 
