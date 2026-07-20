@@ -7,7 +7,7 @@ variable "vpc_cidr" {
 variable "cluster_name" {
   description = "Name of the EKS cluster"
   type        = string
-  default     = "test_floci-eks-cluster"
+  default     = "floci-eks-cluster"
 }
 
 
