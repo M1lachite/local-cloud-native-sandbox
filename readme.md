@@ -18,7 +18,6 @@ The project is structured into two main domains:
 │   ├── network/             # VPC, subnets, NAT Gateways
 │   ├── iam/                 # Roles and access policies
 │   └── eks/                 # Kubernetes cluster and Node Groups configuration
-├── main.tf                  # Root module calling underlying modules
 ├── variables.tf             # Input variables for infrastructure
 └── README.md
 ```
