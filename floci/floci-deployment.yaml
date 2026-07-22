@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: floci-deployment
+  namespace: floci
+  labels:
+    app: floci
+    type: infrastructure
+spec:
+  template:
+    metadata:
+      name: floci
+      labels:
+        app: floci
+        type: infrastructure
+    spec:
+      containers:
+        - name: floci
+          image: floci/floci:latest
+          ports: 
+            - containerPort: 4566
+          resources:
+            requests:
+              memory: "4Gi"
+              cpu: "2"
+            limits:
+              memory: "16Gi"
+              cpu: "4"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: floci
+      type: infrastructure
