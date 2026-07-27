@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    run: test-pod
+  name: test-pod
+spec:
+  ports:
+  - port: 4566
+    protocol: TCP
+    targetPort: 4566
+  selector:
+    run: test-pod
+  type: LoadBalancer
+status:
+  loadBalancer: {}
