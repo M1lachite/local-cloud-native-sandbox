@@ -6,12 +6,31 @@ metadata:
     run: test-pod
   name: test-pod
 spec:
+  volumes:
+  - name: test-floci-volume
+    hostPath:
+      path: /mnt/host/c/tmp/test-floci-volume
+      type: DirectoryOrCreate
+  - name: docker-socket
+    hostPath:
+      path: /var/run/docker.sock
+      type: Socket
   containers:
   - image: floci/floci:latest
     name: test-pod
     ports:
     - containerPort: 4566
     resources: {}
+    env:
+      - name: FLOCI_STORAGE_MODE
+        value: "hybrid"
+      - name: FLOCI_STORAGE_PERSISTENT_PATH
+        value: "/app/data"
+    volumeMounts:
+    - mountPath: /app/data
+      name: test-floci-volume
+    - mountPath: /var/run/docker.sock
+      name: docker-socket
   dnsPolicy: ClusterFirst
   restartPolicy: Always
 status: {}
